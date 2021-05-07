@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'New Tegomin', serif, 'Noto Serif TC', serif;;
+  }
+  h1 {
+    @apply text-5xl;
+    font-family: 'Reggae One', cursive;
+  }
+  h2 {
+    @apply text-4xl font-bold;
+    font-family: 'Reggae One', cursive;
+  }
+  h3 {
+    @apply text-4xl font-bold;
+  }
+  body {
+    @apply bg-gray-100;
+  }
+}
+
+@layer components {
+  .vertical-lr {
+    writing-mode: vertical-lr;
+  }
+  .vertical-rl {
+    writing-mode: vertical-rl;
+  }
+  .tracking-2widest {
+    letter-spacing: 0.3em;
+  }
+  .subtitle {
+    @apply uppercase text-xs text-gray-400;
+  }
+}
