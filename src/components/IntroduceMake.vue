@@ -1,5 +1,5 @@
 <template>
-  <section class="grid grid-cols-12">
+  <section class="grid grid-cols-12 bg-white">
     <div class="col-span-9 bg-red-300 h-full grid grid-cols-12 text-white">
       <a
         href="javascript:;"
@@ -16,8 +16,8 @@
         class="product-make-image product-make-image-2 relative"
       >
         <h3 class="absolute bottom-6 left-6 leading-8 font-bold">
-          蛋捲<br />
-          <span class="uppercase text-base font-normal">roll</span>
+          蛋糕<br />
+          <span class="uppercase text-base font-normal">cake</span>
         </h3>
         <span class="more-info">點擊了解更多</span>
       </a>
@@ -36,19 +36,19 @@
         class="product-make-image product-make-image-4 relative"
       >
         <h3 class="absolute bottom-6 left-6 leading-8 font-bold">
-          蛋糕<br />
-          <span class="uppercase text-base font-normal">cake</span>
+          可頌<br />
+          <span class="uppercase text-base font-normal">croissant</span>
         </h3>
         <span class="more-info">點擊了解更多</span>
       </a>
     </div>
-    <div class="col-span-3 h-full flex items-center px-20">
+    <div class="col-span-3 h-full flex items-center px-20 select-none">
       <div>
         <div class="vertical-rl mb-16">
           <span class="subtitle">make</span>
           <h3>製作</h3>
         </div>
-        <p class="tracking-widest leading-8 text-xl">
+        <p class="paragraph pr-3">
           和菓子的甜點是純手工製作。<br />
           包含三明治，蛋糕，甜甜圈，可頌。<br />
           要創造新的水果甜點，需要花費大量的時間和精力。

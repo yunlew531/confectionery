@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-my-white max-w-full py-24">
+  <section class="bg-my-white max-w-full py-28">
     <div class="max-w-xl mx-auto">
       <div class="vertical-rl cursor-default select-none">
         <span class="subtitle">about <span class="mt-1">heguozi</span></span>
@@ -32,9 +32,6 @@ export default {};
 </script>
 
 <style>
-.bg-my-white {
-  background: #f8f8f8;
-}
 .leading-12 {
   line-height: 3rem;
 }

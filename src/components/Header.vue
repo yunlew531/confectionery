@@ -1,9 +1,9 @@
 <template>
-  <div class="flex justify-between">
-    <div class="text-white flex">
+  <div class="flex justify-between" :class="{ [displayColor]: true }">
+    <div class="flex">
       <router-link to="/" class="inline-block mr-16">
         <h1
-          class="duration-300 inline-block title-bg bg-no-repeat center bg-cover vertical-lr text-white tracking-2widest font-bold hover:text-gray-400"
+          class="duration-300 inline-block title-bg bg-no-repeat center bg-cover vertical-lr tracking-2widest font-bold hover:text-gray-400"
         >
           和菓子
         </h1>
@@ -33,7 +33,7 @@
       </ul>
     </div>
     <div>
-      <div class="text-white flex justify-evenly mb-3 font-reggae-one">
+      <div class="flex justify-evenly mb-3 font-reggae-one">
         <a
           href="javasript:;"
           class="duration-300 flex items-center mr-10 hover:text-red-600"
@@ -74,7 +74,23 @@
 </template>
 
 <script>
-export default {};
+import { computed } from "vue";
+export default {
+  props: {
+    headerColor: String,
+  },
+  setup(props) {
+    // 切換主色調: props 可傳入 black / white
+    const displayColor = computed(() => {
+      if (props.headerColor === "black") return "text-black";
+      return "text-white";
+    });
+
+    return {
+      displayColor,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -84,6 +100,8 @@ export default {};
     writing-mode: vertical-lr;
     letter-spacing: 0.3em;
     font-family: "Reggae One", cursive;
+  }
+  .style-white {
   }
 }
 .nav-font-style:nth-child(n)::before {

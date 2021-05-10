@@ -23,6 +23,9 @@
 }
 
 @layer components {
+  .-mt-025{
+    margin-top: -1px;
+  }
   .vertical-lr {
     writing-mode: vertical-lr;
   }
@@ -33,6 +36,15 @@
     letter-spacing: 0.3em;
   }
   .subtitle {
-    @apply uppercase text-xs text-gray-400;
+    @apply uppercase text-xs text-gray-400 tracking-widest;
+  }
+  .paragraph {
+    @apply tracking-widest leading-8 text-xl;
+  }
+  .bg-my-white {
+    background: #f8f8f8;
+  }
+  .bg-my-white-deep {
+    background: #e9e9e9;
   }
 }

@@ -10,16 +10,22 @@
   </section>
   <AboutHeguozi />
   <IntroduceMake />
+  <RawMaterial />
+  <ProductPanel />
 </template>
 
 <script>
 import AboutHeguozi from "@/components/AboutHeguozi.vue";
 import IntroduceMake from "@/components/IntroduceMake.vue";
+import RawMaterial from "@/components/RawMaterial.vue";
+import ProductPanel from "@/components/ProductPanel.vue";
 
 export default {
   components: {
     AboutHeguozi,
     IntroduceMake,
+    RawMaterial,
+    ProductPanel,
   },
 };
 </script>
