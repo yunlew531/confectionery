@@ -17,7 +17,7 @@
         ></div>
       </div>
       <div class="mt-20">
-        <h4 class="text-lg font-bold border-l-4 border-black leading-none pl-3">
+        <h4 class="text-lg font-bold border-l-8 border-black leading-none pl-3">
           原料一覽
         </h4>
         <ul class="mt-5 grid grid-cols-12 gap-x-7">

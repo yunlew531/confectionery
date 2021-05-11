@@ -39,7 +39,7 @@
     @apply uppercase text-xs text-gray-400 tracking-widest;
   }
   .paragraph {
-    @apply tracking-widest leading-8 text-xl;
+    @apply tracking-widest leading-8 text-xl text-gray-900;
   }
   .bg-my-white {
     background: #f8f8f8;

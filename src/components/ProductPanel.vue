@@ -40,6 +40,26 @@
         </a>
       </li>
     </ul>
+    <div class="flex justify-center">
+      <ul class="flex mx-auto mt-20">
+        <li
+          v-for="item in productData"
+          :key="item.name"
+          class="w-3 h-3 rounded-full bg-gray-300 border border-white ml-1 cursor-pointer"
+        ></li>
+      </ul>
+    </div>
+    <div class="flex justify-center mt-12">
+      <a
+        href="javascript:;"
+        class="tracking-widest font-bold duration-300 border border-black mx-auto py-3 px-12 rounded bg-gray-900 text-white hover:bg-white hover:text-gray-900 flex items-center"
+      >
+        <span>查看全部商品</span>
+        <span class="material-icons my-auto text-lg text-gray-500 ml-2">
+          play_circle_outline
+        </span>
+      </a>
+    </div>
   </section>
 </template>
 
