@@ -13,9 +13,6 @@
   <RawMaterial />
   <ProductPanel />
   <StoreInfoPanel />
-  <footer>
-    <Footer />
-  </footer>
 </template>
 
 <script>
@@ -24,7 +21,6 @@ import IntroduceMake from "@/components/IntroduceMake.vue";
 import RawMaterial from "@/components/RawMaterial.vue";
 import ProductPanel from "@/components/ProductPanel.vue";
 import StoreInfoPanel from "@/components/StoreInfoPanel.vue";
-import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
@@ -33,7 +29,6 @@ export default {
     RawMaterial,
     ProductPanel,
     StoreInfoPanel,
-    Footer,
   },
 };
 </script>
