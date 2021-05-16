@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between" :class="{ [displayColor]: true }">
+  <div class="flex justify-between" :class="displayColor">
     <div class="flex">
       <router-link to="/home" class="inline-block mr-16">
         <h1
@@ -74,17 +74,15 @@
 </template>
 
 <script>
-import { computed } from "vue";
+import { ref } from "vue";
+
 export default {
   props: {
     headerColor: String,
   },
-  setup(props) {
-    // 切換主色調: props 可傳入 black / white
-    const displayColor = computed(() => {
-      if (props.headerColor === "black") return "text-black";
-      return "text-white";
-    });
+  setup() {
+    // 切換主色調: 可傳入 text-black / text-white
+    const displayColor = ref("text-white");
 
     return {
       displayColor,

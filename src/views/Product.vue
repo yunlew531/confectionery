@@ -120,10 +120,12 @@
 </template>
 
 <script scoped>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 export default {
   setup() {
-    onMounted(() => {});
+    onMounted(() => {
+      console.dir(ref);
+    });
   },
 };
 </script>

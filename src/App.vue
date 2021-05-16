@@ -1,6 +1,6 @@
 <template>
   <header class="px-24 pt-8 absolute w-full">
-    <Header :headerColor="headerColor"></Header>
+    <Header></Header>
   </header>
   <main>
     <router-view />
@@ -13,7 +13,6 @@
 <script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import { ref } from "vue";
 
 export default {
   components: {
@@ -21,11 +20,7 @@ export default {
     Footer,
   },
   setup() {
-    const headerColor = ref("white"); // 切換Header主色調 black or white
-
-    return {
-      headerColor,
-    };
+    return {};
   },
 };
 </script>
