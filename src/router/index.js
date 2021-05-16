@@ -3,7 +3,7 @@ import Home from "../views/Home.vue";
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "Home",
     component: Home,
   },
@@ -11,12 +11,20 @@ const routes = [
     path: "/product",
     name: "Product",
     component: () => import("@/views/Product.vue"),
-  }
-  // {
-  //   path: "/about",
-  //   name: "About",
-  //   component: () => import("@/components/Header.vue"),
-  // },
+  },
+  {
+    path: "/Hegoze",
+    name: "Hegoze",
+    component: () => import("@/views/Hegoze.vue"),
+    children: [
+      {
+        path: "aboutHegoze",
+        name: "AboutHegoze",
+        component: () => import("@/views/AboutHegoze.vue"),
+
+      }
+    ],
+  },
 ];
 
 const router = createRouter({

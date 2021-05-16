@@ -70,61 +70,24 @@
         </ul>
       </div>
     </div>
-    <div class="bg-my-white-deep py-24">
-      <ul class="max-w-5xl flex justify-evenly mx-auto">
-        <li class="w-3/6">
-          <a
-            href=""
-            class="duration-200 flex p-1 bg-my-white hover:text-red-700 group"
-          >
-            <span
-              class="w-28 h-28 shop-hegoze bg-center bg-cover bg-no-repeat"
-            ></span>
-            <span class="ml-3 px-3 flex justify-between flex-grow items-center">
-              <div>
-                <h3 class="text-2xl">和菓子介紹</h3>
-                <p class="duration-200 subtitle group-hover:text-red-700">
-                  about hegoze
-                </p>
-              </div>
-              <span class="material-icons text-red-700">
-                play_circle_outline
-              </span>
-            </span>
-          </a>
-        </li>
-        <li class="w-3/6 ml-8">
-          <a
-            href=""
-            class="duration-200 flex p-1 bg-my-white hover:text-red-700 group"
-          >
-            <span
-              class="w-28 h-28 shop-img bg-center bg-cover bg-no-repeat"
-            ></span>
-            <span class="ml-3 px-3 flex justify-between flex-grow items-center">
-              <div>
-                <h3 class="text-2xl">店鋪介紹</h3>
-                <p class="duration-200 subtitle group-hover:text-red-700">
-                  shop information
-                </p>
-              </div>
-              <span class="material-icons text-red-700">
-                play_circle_outline
-              </span>
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
   </section>
 </template>
 
 <script scoped>
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
+import { inject } from "vue";
+
 export default {
+  components: {},
   setup() {
+    const emitter = inject("emitter");
+    function setHeaderColor() {
+      const color = "black";
+      emitter.emit("setColor", color);
+    }
+
     onMounted(() => {
-      console.dir(ref);
+      setHeaderColor();
     });
   },
 };
@@ -142,11 +105,5 @@ export default {
 }
 .img-1 {
   background-image: url(https://images.unsplash.com/photo-1501747188-61c00b3d8ba0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80);
-}
-.shop-hegoze {
-  background-image: url("~@/assets/photo-about.png");
-}
-.shop-img {
-  background-image: url("~@/assets/photo-shop.jpg");
 }
 </style>

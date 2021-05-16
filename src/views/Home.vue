@@ -8,7 +8,7 @@
       原料新鮮﹑ 品質優良
     </h2>
   </section>
-  <AboutHeguozi />
+  <AboutHegozePanel />
   <IntroduceMake />
   <RawMaterial />
   <ProductPanel />
@@ -16,19 +16,30 @@
 </template>
 
 <script>
-import AboutHeguozi from "@/components/AboutHeguozi.vue";
+import AboutHegozePanel from "@/components/AboutHegozePanel.vue";
 import IntroduceMake from "@/components/IntroduceMake.vue";
 import RawMaterial from "@/components/RawMaterial.vue";
 import ProductPanel from "@/components/ProductPanel.vue";
 import StoreInfoPanel from "@/components/StoreInfoPanel.vue";
+import { inject, onMounted } from "vue";
 
 export default {
   components: {
-    AboutHeguozi,
+    AboutHegozePanel,
     IntroduceMake,
     RawMaterial,
     ProductPanel,
     StoreInfoPanel,
+  },
+  setup() {
+    const emitter = inject("emitter");
+    function setHeaderColor() {
+      const color = "white";
+      emitter.emit("setColor", color);
+    }
+    onMounted(() => {
+      setHeaderColor();
+    });
   },
 };
 </script>

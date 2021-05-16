@@ -3,7 +3,7 @@
     <div class="flex-grow pb-24 flex justify-between divide-x divide-gray-700">
       <div class="px-16">
         <router-link
-          to="/home"
+          to="/"
           class="flex justify-end duration-300 hover:text-gray-400"
         >
           <h2 class="text-5xl vertical-rl tracking-2widest">和菓子</h2>

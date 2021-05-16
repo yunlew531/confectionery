@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-between" :class="displayColor">
+  <div class="flex justify-between" :class="[displayColor]">
     <div class="flex">
-      <router-link to="/home" class="inline-block mr-16">
+      <router-link to="/" class="inline-block mr-16">
         <h1
           class="duration-300 inline-block title-bg bg-no-repeat center bg-cover vertical-lr tracking-2widest font-bold hover:text-gray-400"
         >
@@ -10,25 +10,42 @@
       </router-link>
       <ul class="pt-3.5 flex">
         <li>
-          <router-link to="/" class="nav-font-style">關於和菓子</router-link>
+          <router-link
+            to="/Hegoze/aboutHegoze"
+            class="nav-font-style"
+            :class="navFontStyleBlack"
+            >關於和菓子</router-link
+          >
         </li>
         <li>
-          <router-link to="/" class="nav-font-style">和菓子</router-link>
+          <router-link to="/" class="nav-font-style" :class="navFontStyleBlack"
+            >和菓子</router-link
+          >
         </li>
         <li>
-          <router-link to="/" class="nav-font-style">製作</router-link>
+          <router-link to="/" class="nav-font-style" :class="navFontStyleBlack"
+            >製作</router-link
+          >
         </li>
         <li>
-          <router-link to="/" class="nav-font-style">原料</router-link>
+          <router-link to="/" class="nav-font-style" :class="navFontStyleBlack"
+            >原料</router-link
+          >
         </li>
         <li>
-          <router-link to="/" class="nav-font-style">消息</router-link>
+          <router-link to="/" class="nav-font-style" :class="navFontStyleBlack"
+            >消息</router-link
+          >
         </li>
         <li>
-          <router-link to="/" class="nav-font-style">日常事務</router-link>
+          <router-link to="/" class="nav-font-style" :class="navFontStyleBlack"
+            >日常事務</router-link
+          >
         </li>
         <li>
-          <router-link to="/" class="nav-font-style">關於店鋪</router-link>
+          <router-link to="/" class="nav-font-style" :class="navFontStyleBlack"
+            >關於店鋪</router-link
+          >
         </li>
       </ul>
     </div>
@@ -74,18 +91,37 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { inject } from "vue";
 
 export default {
   props: {
     headerColor: String,
   },
   setup() {
+    const emitter = inject("emitter");
     // 切換主色調: 可傳入 text-black / text-white
     const displayColor = ref("text-white");
+    const navFontStyleBlack = ref("");
 
+    function setColor() {
+      emitter.on("setColor", (color) => {
+        if (color === "black") {
+          displayColor.value = "text-black";
+          navFontStyleBlack.value = "nav-font-style-black";
+        } else if (color === "white") {
+          displayColor.value = "text-white";
+          navFontStyleBlack.value = "";
+        }
+      });
+    }
+
+    onMounted(() => {
+      setColor();
+    });
     return {
       displayColor,
+      navFontStyleBlack,
     };
   },
 };
@@ -110,6 +146,9 @@ export default {
   width: 100%;
   bottom: 0;
   transition: 0.5s linear;
+}
+.nav-font-style-black:nth-child(n)::before {
+  border-right: 1px solid #000;
 }
 .nav-font-style:hover.nav-font-style::before {
   height: 100%;
