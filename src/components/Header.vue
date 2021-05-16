@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-between" :class="{ [displayColor]: true }">
     <div class="flex">
-      <router-link to="/" class="inline-block mr-16">
+      <router-link to="/home" class="inline-block mr-16">
         <h1
           class="duration-300 inline-block title-bg bg-no-repeat center bg-cover vertical-lr tracking-2widest font-bold hover:text-gray-400"
         >

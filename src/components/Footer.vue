@@ -2,12 +2,12 @@
   <section class="bg-footer text-gray-200 font-bold pt-24 flex flex-col px-32">
     <div class="flex-grow pb-24 flex justify-between divide-x divide-gray-700">
       <div class="px-16">
-        <a
-          href="javascript:;"
+        <router-link
+          to="/home"
           class="flex justify-end duration-300 hover:text-gray-400"
         >
           <h2 class="text-5xl vertical-rl tracking-2widest">和菓子</h2>
-        </a>
+        </router-link>
       </div>
       <div class="flex-grow flex flex-col items-center justify-center">
         <a href="javascript:;" class="flex duration-300 hover:text-gray-400">

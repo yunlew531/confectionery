@@ -4,7 +4,8 @@
 
 @layer base {
   body {
-    font-family: 'New Tegomin', serif, 'Noto Serif TC', serif;;
+    font-family: 'New Tegomin', serif, 'Noto Serif TC', serif;
+    @apply bg-gray-100 text-gray-900;
   }
   h1 {
     @apply text-5xl;
@@ -17,13 +18,10 @@
   h3 {
     @apply text-4xl font-bold;
   }
-  body {
-    @apply bg-gray-100;
-  }
 }
 
 @layer components {
-  .-mt-025{
+  .-mt-025 {
     margin-top: -1px;
   }
   .vertical-lr {
