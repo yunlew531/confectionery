@@ -8,7 +8,7 @@
         <div class="img img-1"></div>
       </div>
       <div class="pl-12 max-w-lg">
-        <h3 class="text-2xl">馬卡龍</h3>
+        <h3 class="text-2xl">{{ productData.data.title }}</h3>
         <p class="text-gray-500 mt-1">草莓、任胡麻</p>
         <p class="mt-3 text-xl">16個裝</p>
         <p class="paragraph border-t border-gray-300 py-8 mt-6">
@@ -74,21 +74,38 @@
 </template>
 
 <script scoped>
-import { onMounted } from "vue";
+import { ref, reactive, onMounted } from "vue";
 import { inject } from "vue";
+import { useRoute } from "vue-router";
+import axios from "axios";
 
 export default {
   components: {},
   setup() {
+    const route = useRoute();
     const emitter = inject("emitter");
-    function setHeaderColor() {
+    const productId = ref("");
+    const productData = reactive({ data: {} });
+    const setHeaderColor = () => {
       const color = "black";
       emitter.emit("setColor", color);
-    }
+    };
+    const getProduct = async (productId) => {
+      const { data } = await axios.get(
+        `https://vue3-course-api.hexschool.io/api/yunlew/product/${productId}`
+      );
+      productData.data = data.product;
+      console.log(productData.data);
+    };
 
     onMounted(() => {
       setHeaderColor();
+      productId.value = route.params.id;
+      getProduct(productId.value);
     });
+    return {
+      productData,
+    };
   },
 };
 </script>

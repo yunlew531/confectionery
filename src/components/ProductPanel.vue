@@ -5,11 +5,11 @@
       <h3 class="mt-2.5">產品介紹</h3>
     </div>
     <ul class="flex mt-12 overflow-hidden">
-      <li class="product-card" v-for="item in productData" :key="item.name">
-        <a
+      <li class="product-card" v-for="item in productData.data" :key="item.id">
+        <router-link
+          :to="`/product/${item.id}`"
           class="block photo mb-2 group relative"
-          :class="item.src"
-          href="javascript:;"
+          :style="{ 'background-image': 'url(' + item.imageUrl + ')' }"
         >
           <span
             class="block bg-black duration-300 opacity-0 group-hover:opacity-60 w-full h-full"
@@ -18,15 +18,15 @@
             class="duration-300 text-lg absolute top-1/2 left-1/2 transform scale-150 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:scale-100 text-gray-200"
             >點擊查看更多</span
           >
-        </a>
-        <a class="group flex" href="javascript:;">
+        </router-link>
+        <router-link :to="`/product/${item.id}`" class="group flex">
           <div class="flex-grow">
             <span
               class="subtitle text-gray-900 duration-300 group-hover:text-red-600"
-              >{{ item.engName }}</span
+              >{{ item.title }}</span
             >
             <h4 class="duration-300 text-lg font-bold group-hover:text-red-600">
-              {{ item.name }}
+              {{ item.title }}
             </h4>
             <span class="text-sm text-gray-500">{{ item.materials }}</span>
             <p class="duration-300 group-hover:text-red-600">
@@ -37,14 +37,14 @@
             class="border border-red-600 self-start px-1.5 text-sm text-red-600"
             >熱銷商品</span
           >
-        </a>
+        </router-link>
       </li>
     </ul>
     <div class="flex justify-center">
       <ul class="flex mx-auto mt-20">
         <li
-          v-for="item in productData"
-          :key="item.name"
+          v-for="item in productData.data"
+          :key="item.id"
           class="w-3 h-3 rounded-full bg-gray-300 border border-white ml-1 cursor-pointer"
         ></li>
       </ul>
@@ -64,33 +64,22 @@
 </template>
 
 <script>
-import { reactive } from "vue";
+import { onMounted, reactive } from "vue";
+import axios from "axios";
 
 export default {
   setup() {
-    const productData = reactive([
-      {
-        name: "蛋糕",
-        engName: "cake",
-        materials: "紅酒, 草莓, 葡萄",
-        price: 2000,
-        src: "photo-1",
-      },
-      {
-        name: "鬆餅",
-        engName: "pancake",
-        materials: "白酒, 桃子, 奇異果",
-        price: 3000,
-        src: "photo-2",
-      },
-      {
-        name: "蘋果可頌",
-        engName: "apple croissant",
-        materials: "蘋果, 草莓",
-        price: 1500,
-        src: "photo-3",
-      },
-    ]);
+    const productData = reactive({ data: [] });
+
+    const getProducts = async () => {
+      const { data } = await axios.get(
+        "https://vue3-course-api.hexschool.io/api/yunlew/products/all"
+      );
+      productData.data = data.products;
+    };
+    onMounted(() => {
+      getProducts();
+    });
     return {
       productData,
     };
